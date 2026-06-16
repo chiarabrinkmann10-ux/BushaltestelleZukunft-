@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#BushaltestelleZukunft</title>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --text: #111;
+  --muted: #6b6b6b;
+  --border: #ececec;
+  --bg-soft: #f7f7f7;
+
+  --hero-blue: #cad9ff;
+  --hero-green: #afef73;
+  --hero-orange: #FF5A2F;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  color: var(--text);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 45vh;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-bg svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  box-sizing: border-box;
+}
+
+header {
+  margin-bottom: 50px;
+}
+
+h1 {
+  font-size: clamp(40px, 7vw, 64px);
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  line-height: 1.1;
+}
+
+.hashtag {
+  display: inline-block;
+  background: var(--text);
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+header p {
+  font-size: 22px;
+  line-height: 1.5;
+  color: #333;
+  max-width: 800px;
+  margin: 0;
+}
+
+/* AKKORDEON / AUFKLAPP-CONTAINER */
+.accordion-group {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.accordion-item {
+  border: 4px solid var(--text);
+  border-radius: 16px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.accordion-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 28px 32px;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: left;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.accordion-trigger:hover {
+  background-color: var(--bg-soft);
+}
+
+.accordion-icon {
+  font-size: 24px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* INTERAKTIVER PANEL-EFFEKT */
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
+  padding: 0 32px;
+}
+
+/* Wenn aktiv, wird per JS die Klasse hinzugefügt */
+.accordion-item.active .accordion-panel {
+  max-height: 2000px; /* Groß genug für den Inhalt */
+  padding-bottom: 32px;
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(180deg);
+}
+
+/* TEXT & BILDER IN DEN PANELS */
+.accordion-panel p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+}
+
+.panel-img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--text);
+  margin-top: 16px;
+}
+
+footer {
+  margin-top: 60px;
+  text-align: center;
+  border-top: 4px solid var(--text);
+  padding-top: 40px;
+}
+
+footer p {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero-bg">
+  <svg viewBox="0 0 1440 500" preserveAspectRatio="none">
+    <path d="M0,220 C220,40 420,20 760,170 C980,270 1120,70 1440,160 L1440,0 L0,0 Z" fill="var(--hero-blue)" />
+    <path d="M40,0 L180,0 C260,80 260,240 400,320 C120,380 40,340 20,240 C200,160 0,80 40,0 Z" fill="var(--hero-green)" />
+    <path d="M1240,50 C1400,0 1410,20 1360,500 C1290,420 1230,250 1240,120 L1160,120 C980,60 1210,20 1240,100 Z" fill="var(--hero-orange)" />
+  </svg>
+</div>
+
+<div class="content">
+  <header>
+    <div class="hashtag">#BushaltestelleZukunft</div>
+    <h1>Das Experiment.<br>Die Auflösung.</h1>
+    <p>Klickt euch durch die einzelnen Schritte, um zu sehen, was wir aus euren Impulsen gemacht haben und wer wir eigentlich sind.</p>
+  </header>
+
+  <main class="accordion-group">
+
+    <!-- SEKTION 1 -->
+    <div class="accordion-item">
+      <button class="accordion-trigger">
+        <span>01 / Wir haben zugehört</span>
+        <span class="accordion-icon">▼</span>
+      </button>
+      <div class="accordion-panel">
+        <p>Alles begann mit eurer Perspektive. Um zu verstehen, wie euer Alltag hier aussieht, was euch bewegt und was euch vielleicht noch fehlt, haben wir im Vorfeld viele intensive Interviews mit euch geführt. Ihr habt uns einen ehrlichen Einblick in euer Leben am Standort Sickinger Straße gegeben. Dabei wurde schnell klar: Es braucht einen Ort für Austausch, Wünsche und Sichtbarkeit. <strong>Vielen Dank für euren wertvollen Input!</strong></p>
+        <img class="panel-img" src="images/zugehoert_01.jpg" alt="Wir haben zugehört">
+      </div>
+    </div>
+
+    <!-- SEKTION 2 -->
+    <div class="accordion-item">
+      <button class="accordion-trigger">
+        <span>02 / Wir haben gebaut & verändert</span>
+        <span class="accordion-icon">▼</span>
+      </button>
+      <div class="accordion-panel">
+        <p>Weil Reden allein nichts verändert, haben wir eure Impulse genommen und eine temporäre Intervention gestartet: Die Bushaltestelle in der Raucherecke wurde zum Leben erweckt! Erst haben wir den Raum aufgemacht, um euren alltäglichen Treffpunkt aufzuwerten und euch mit den Tickets eine Stimme zu geben. <strong>Danke, dass ihr so stark mit den Tickets interagiert habt!</strong> Zwei Tage später haben wir ihn gezielt zugemacht – eine bewusste Irritation, um zu spüren, was passiert, wenn dieser wichtige soziale Ankerpunkt plötzlich fehlt. Dadurch wurde allen klar, wie wertvoll dieser Raum für euren Austausch eigentlich ist.</p>
+        <img class="panel-img" src="images/gebastelt_01.jpg" alt="Wir haben gebaut und verändert">
+      </div>
+    </div>
+
+    <!-- SEKTION 3 -->
+    <div class="accordion-item">
+      <button class="accordion-trigger">
+        <span>03 / Wir haben beobachtet</span>
+        <span class="accordion-icon">▼</span>
+      </button>
+      <div class="accordion-panel">
+        <p><em>[Hier kommt bald euer neuer Input für den Text zu den Beobachtungen und Ergebnissen hin...]</em></p>
+        <img class="panel-img" src="images/beobachtet_01.jpg" alt="Unsere Beobachtungen">
+      </div>
+    </div>
+
+    <!-- SEKTION 4 -->
+    <div class="accordion-item">
+      <button class="accordion-trigger">
+        <span>04 / Über uns</span>
+        <span class="accordion-icon">▼</span>
+      </button>
+      <div class="accordion-panel">
+        <p><em>[Hier kommt bald euer neuer Input für den Text über euer Team und euer Studium hin...]</em></p>
+        <!-- Ohne Bild laut Vorgabe -->
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>Deine Stärke ist dein Ticket zu deinem Ziel. Danke fürs Mitmachen!</p>
+  </footer>
+</div>
+
+<script>
+document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    const item = trigger.parentElement;
+    
+    document.querySelectorAll('.accordion-item').forEach(otherItem => {
+      if (otherItem !== item) {
+        otherItem.classList.remove('active');
+      }
+    });
+    
+    item.classList.toggle('active');
+  });
+});
+</script>
+
+</body>
+</html>
